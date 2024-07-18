@@ -72,7 +72,7 @@ elseif(CORE_SYSTEM_NAME STREQUAL android)
     message(FATAL_ERROR "${PROJECT_NAME} needs Android ${CPU} build command in CMakeLists.txt!")
   endif()
   set(BUILD_COMMAND ${NDKROOT}/ndk-build -C backends/platform/libretro/jni APP_ABI=${PLATFORM} V7NEONOPTIMIZATION=1 GIT_VERSION=
-                                    NDK_LIBS_OUT=${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}  ${LIBRETRO_DEBUG} V=1 ${build_job_count}
+                                    NDK_LIBS_OUT=${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}  ${LIBRETRO_DEBUG} V=1 ${build_job_count} APP_SHORT_COMMANDS=true
                     && cp ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${PLATFORM}/${LIBRETRO_JNISONAME} ${PROJECT_SOURCE_DIR}/${LIBRETRO_BINARY_DIR}/${LIBRETRO_SONAME})
 elseif(CORE_SYSTEM_NAME STREQUAL rbpi)
   message(FATAL_ERROR "${PROJECT_NAME} needs RPi build command in CMakeLists.txt!")
